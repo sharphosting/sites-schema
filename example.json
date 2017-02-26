@@ -1,0 +1,23 @@
+{
+    "/var/www/sites/apps.example.com": {
+        "user": "exampleapps",
+        "type": "static"
+    },
+    "/var/www/sites/default_host": {
+        "user": "jason",
+        "type": "static"
+    },
+    "/var/www/sites/www.example.com": {
+        "user": "exampleweb",
+        "type": "joomla",
+        "open_folders" : [
+            "/images",
+            "/templates/templatecw/images"
+        ]
+    },
+    "/var/www/sites/oldsite.example.org": {
+        "user": "oldsiteexample",
+        "type": "static",
+        "has_cgi_bin": true
+    }
+}

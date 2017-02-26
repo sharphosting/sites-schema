@@ -1,0 +1,35 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://sharphosting.uk/schemas/sites",
+	"title": "Sites",
+	"description": "Schema for data describing shared hosting website configurations.",
+	"type": "object",
+	"patternProperties": {
+		"^(/[^/]+)+$": {
+			"title": "Site Folder",
+			"type": "object",
+			"properties": {
+				"user": {
+					"type": "string",
+					"pattern": "^[a-z][a-z0-9]+$"
+				},
+				"type": {
+					"type": "string",
+					"enum": ["static", "joomla", "wordpress"],
+					"default": "static"
+				},
+				"open_folders": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"pattern": "^(/[^/]+)+$"
+					}
+				},
+				"has_cgi_bin": { "type": "boolean" }
+			},
+			"required": [ "user" ],
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false
+}
