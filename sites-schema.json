@@ -4,37 +4,69 @@
 	"title": "Sites",
 	"description": "Schema for data describing shared hosting website configurations.",
 	"type": "object",
-	"patternProperties": {
-		"^(/[^/]+)+$": {
-			"title": "Site Folder",
+	"properties": {
+		"site_types": {
 			"type": "object",
 			"properties": {
-				"required": [ "test" ],
-				"user": {
-					"type": "string",
-					"pattern": "^[a-z][a-z0-9]+$"
-				},
-				"type": {
-					"type": "string",
-					"enum": ["static", "joomla", "wordpress"]
-				},
-				"open_folders": {
+				"keep_empty": {
 					"type": "array",
 					"items": {
 						"type": "string",
 						"pattern": "^(/[^/]+)+$"
 					}
 				},
-                "server_files": {
+                "open_folders": {
                     "type": "array",
                     "items": {
                         "type": "string",
                         "pattern": "^(/[^/]+)+$"
                     }
                 },
-				"has_cgi_bin": { "type": "boolean" }
+                "read_only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "pattern": "^(/[^/]+)+$"
+                    }
+                }
 			},
-			"required": [ "user", "type" ],
+			"additionalPropertiesr: false
+		},
+		"sites": {
+			"type": "object",
+			"patternProperties": {
+				"^(/[^/]+)+$": {
+					"title": "Site Folder",
+					"type": "object",
+					"properties": {
+						"user": {
+							"type": "string",
+							"pattern": "^[a-z][a-z0-9]+$"
+						},
+						"type": {
+							"type": "string",
+							"enum": ["static", "joomla", "wordpress"]
+						},
+						"open_folders": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+$"
+							}
+						},
+						"server_files": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+$"
+							}
+						},
+						"has_cgi_bin": { "type": "boolean" }
+					},
+					"required": [ "user", "type" ],
+					"additionalProperties": false
+				}
+			},
 			"additionalProperties": false
 		}
 	},
