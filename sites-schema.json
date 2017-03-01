@@ -16,8 +16,7 @@
 				},
 				"type": {
 					"type": "string",
-					"enum": ["static", "joomla", "wordpress"],
-					"default": "static"
+					"enum": ["static", "joomla", "wordpress"]
 				},
 				"open_folders": {
 					"type": "array",
@@ -35,7 +34,7 @@
                 },
 				"has_cgi_bin": { "type": "boolean" }
 			},
-			"required": [ "user" ],
+			"required": [ "user", "type" ],
 			"additionalProperties": false
 		}
 	},
