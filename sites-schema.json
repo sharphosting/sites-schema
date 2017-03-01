@@ -9,6 +9,7 @@
 			"title": "Site Folder",
 			"type": "object",
 			"properties": {
+				"required": [ "test" ],
 				"user": {
 					"type": "string",
 					"pattern": "^[a-z][a-z0-9]+$"
@@ -25,6 +26,13 @@
 						"pattern": "^(/[^/]+)+$"
 					}
 				},
+                "server_files": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "pattern": "^(/[^/]+)+$"
+                    }
+                },
 				"has_cgi_bin": { "type": "boolean" }
 			},
 			"required": [ "user" ],
