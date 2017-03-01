@@ -7,30 +7,37 @@
 	"properties": {
 		"site_types": {
 			"type": "object",
-			"properties": {
-				"keep_empty": {
-					"type": "array",
-					"items": {
-						"type": "string",
-						"pattern": "^(/[^/]+)+$"
+			"patternProperties": {
+                "^[a-z]+$": {
+                    "title": "Site Type",
+                    "type": "object",	
+					"properties": {
+						"keep_empty": {
+								"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+$"
+							}
+						},
+        		        "open_folders": {
+        		            "type": "array",
+        		            "items": {
+        		                "type": "string",
+        		                "pattern": "^(/[^/]+)+$"
+        		            }
+        		        },
+        		        "read_only": {
+        		            "type": "array",
+        		            "items": {
+        		                "type": "string",
+        		                "pattern": "^(/[^/]+)+$"
+        		            }
+        		        }
 					}
 				},
-                "open_folders": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "pattern": "^(/[^/]+)+$"
-                    }
-                },
-                "read_only": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "pattern": "^(/[^/]+)+$"
-                    }
-                }
+				"additionalProperties": false
 			},
-			"additionalPropertiesr: false
+			"additionalProperties": false
 		},
 		"sites": {
 			"type": "object",
