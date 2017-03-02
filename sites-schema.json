@@ -61,6 +61,13 @@
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
+                        "read_only": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^(/[^/]+)+$"
+                            }
+                        },
 						"server_files": {
 							"type": "array",
 							"items": {
