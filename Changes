@@ -1,0 +1,7 @@
+
+2017-03-02 20:39
+Version 0.11
+- Updated to store settings for site types
+- Added "read_only" section for sites
+- Added "server_files" section for sites
+
