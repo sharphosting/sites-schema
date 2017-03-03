@@ -39,6 +39,7 @@
 			},
 			"additionalProperties": false
 		},
+		"directory_structure": {},
 		"sites": {
 			"type": "object",
 			"patternProperties": {
