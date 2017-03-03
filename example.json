@@ -1,23 +1,52 @@
 {
-    "/var/www/sites/apps.example.com": {
-        "user": "exampleapps",
-        "type": "static"
-    },
-    "/var/www/sites/default_host": {
-        "user": "jason",
-        "type": "static"
-    },
-    "/var/www/sites/www.example.com": {
-        "user": "exampleweb",
-        "type": "joomla",
-        "open_folders" : [
-            "/images",
-            "/templates/templatecw/images"
-        ]
-    },
-    "/var/www/sites/oldsite.example.org": {
-        "user": "oldsiteexample",
-        "type": "static",
-        "has_cgi_bin": true
-    }
+	"site_types" : {
+		"joomla" : {
+			"keep_empty" : [
+				"/tmp"
+			],
+			"open_folders" : [
+				"/administrator/cache",
+				"/cache",
+				"/logs",
+				"/tmp"
+			],
+			"read_only" : [
+				"/configuration.php"
+			]
+		},
+		"wordpress" : {
+			"open_folders" : [
+				"/wp-content/upload"
+			],
+			"read_only" : [
+				"/wp-config.php"
+			]
+		}
+	},
+	"sites" : {
+	    "/var/www/sites/apps.example.com": {
+	        "user": "exampleapps",
+	        "type": "static"
+	    },
+	    "/var/www/sites/default_host": {
+	        "user": "jason",
+	        "type": "static"
+	    },
+	    "/var/www/sites/www.example.com": {
+	        "user": "exampleweb",
+	        "type": "joomla",
+	        "open_folders" : [
+	            "/images",
+	            "/templates/templatecw/images"
+	        ],
+			"server_files" : [
+				"/cache/37b32d223fc1de234850973dc23578ef-cache--38d1e432098e63c378943d2f489102fc.php"
+			]
+	    },
+	    "/var/www/sites/oldsite.example.org": {
+	        "user": "oldsiteexample",
+	        "type": "static",
+	        "has_cgi_bin": true
+	    }
+	}
 }
