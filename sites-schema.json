@@ -13,7 +13,7 @@
 					"type": "object",	
 					"properties": {
 						"keep_empty": {
-								"type": "array",
+							"type": "array",
 							"items": {
 								"type": "string",
 								"pattern": "^(/[^/]+)+$"
