@@ -8,9 +8,9 @@
 		"site_types": {
 			"type": "object",
 			"patternProperties": {
-                "^[a-z]+$": {
-                    "title": "Site Type",
-                    "type": "object",	
+				"^[a-z]+$": {
+					"title": "Site Type",
+					"type": "object",	
 					"properties": {
 						"keep_empty": {
 								"type": "array",
@@ -19,20 +19,20 @@
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-        		        "open_folders": {
-        		            "type": "array",
-        		            "items": {
-        		                "type": "string",
-        		                "pattern": "^(/[^/]+)+$"
-        		            }
-        		        },
-        		        "read_only": {
-        		            "type": "array",
-        		            "items": {
-        		                "type": "string",
-        		                "pattern": "^(/[^/]+)+$"
-        		            }
-        		        }
+						"open_folders": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+$"
+							}
+						},
+						"read_only": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+$"
+							}
+						}
 					}
 				},
 				"additionalProperties": false
@@ -61,13 +61,13 @@
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-                        "read_only": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "pattern": "^(/[^/]+)+$"
-                            }
-                        },
+						"read_only": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+$"
+							}
+						},
 						"server_files": {
 							"type": "array",
 							"items": {
