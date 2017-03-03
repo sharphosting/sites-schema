@@ -76,7 +76,15 @@
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-						"has_cgi_bin": { "type": "boolean" }
+						"options": {
+							"type": "object",
+							"patternProperties": {
+								"^[a-zA-Z0-9_]+$": {
+									"type": "boolean"
+								}
+							},
+							"additionalProperties": false
+						}
 					},
 					"required": [ "user", "type" ],
 					"additionalProperties": false
