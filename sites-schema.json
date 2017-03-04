@@ -5,6 +5,7 @@
 	"description": "Schema for data describing shared hosting website configurations.",
 	"type": "object",
 	"properties": {
+		"web_server": {},
 		"site_types": {
 			"type": "object",
 			"patternProperties": {
