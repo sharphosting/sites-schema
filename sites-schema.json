@@ -8,21 +8,48 @@
 		"web_server": {
 			"type": "object",
 			"properties": {
-				"type": {
-					"type": "string"
-				},
-				"user": {
-					"type": "string"
-				},
-				"group": {
-					"type": "string"
+				"type": { "type": "string" },
+				"user": { "type": "string" },
+				"group": { "type": "string" }
+			},
+			"required": [ "type", "user", "group" ],
+			"additionalProperties": false
+		},
+		"directory_structure": {
+			"type": "object",
+			"properties": {
+				"user": { "type": "string" },
+				"group": { "type": "string" },
+				"d_mode": { "type": "string" },
+				"f_mode": { "type": "string" },
+				"directories": {
+					"type": "object",
+					"patternProperties": {
+						"^[^/]+$": {
+							"title": "Directory",
+							"type": "object",
+							"properties": {
+								"user": { "type": "string" },
+								"group": { "type": "string" },
+								"d_mode": { "type": "string" },
+								"f_mode": { "type": "string" },
+								"optional": { "type": "string" },
+								"optional_default": { "type": "boolean" },
+								"allow_specials": { "type": "boolean" },
+								"contents": {
+									"user": { "type": "string" },
+									"group": { "type": "string" },
+									"d_mode": { "type": "string" },
+									"f_mode": { "type": "string" }
+								}
+							},
+							"additionalProperties": false
+						}
+					},
+					"additionalProperties": false
 				}
 			},
-			"required": [
-				"type",
-				"user",
-				"group"
-			],
+			"required": [ "user", "group", "d_mode", "f_mode", "directories" ],
 			"additionalProperties": false
 		},
 		"site_types": {
@@ -59,7 +86,6 @@
 			},
 			"additionalProperties": false
 		},
-		"directory_structure": {},
 		"sites": {
 			"type": "object",
 			"patternProperties": {
