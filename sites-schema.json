@@ -59,21 +59,21 @@
 					"title": "Site Type",
 					"type": "object",	
 					"properties": {
-						"keep_empty": {
+						"temp_dirs": {
 							"type": "array",
 							"items": {
 								"type": "string",
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-						"open_folders": {
+						"world_writable_dirs": {
 							"type": "array",
 							"items": {
 								"type": "string",
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-						"read_only": {
+						"read_only_files": {
 							"type": "array",
 							"items": {
 								"type": "string",
@@ -98,31 +98,30 @@
 							"pattern": "^[a-z][a-z0-9]+$"
 						},
 						"type": {
-							"type": "string",
-							"enum": ["static", "joomla", "wordpress"]
+							"type": "string"
 						},
-						"open_folders": {
+						"world_writable_dirs": {
 							"type": "array",
 							"items": {
 								"type": "string",
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-						"read_only": {
+						"read_only_files": {
 							"type": "array",
 							"items": {
 								"type": "string",
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-						"server_files": {
+						"server_owned_files": {
 							"type": "array",
 							"items": {
 								"type": "string",
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
-						"ownership_only": {
+						"ignore_permissions": {
 							"type": "array",
 							"items": {
 								"type": "string",
