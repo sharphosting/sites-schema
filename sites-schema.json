@@ -122,6 +122,13 @@
 								"pattern": "^(/[^/]+)+$"
 							}
 						},
+						"ownership_only": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/]+)+/?$"
+							}
+						},
 						"options": {
 							"type": "object",
 							"patternProperties": {
