@@ -38,6 +38,7 @@
 							"title": "Directory",
 							"type": "object",
 							"properties": {
+								"allow_specials": { "type": "boolean" },
 								"user": { "type": "string" },
 								"group": { "type": "string" },
 								"d_mode": {
@@ -53,7 +54,6 @@
 									"pattern": "^[a-z]([a-z0-9_-]*[a-z])?$"
 								},
 								"optional_default": { "type": "boolean" },
-								"allow_specials": { "type": "boolean" },
 								"contents": {
 									"user": { "type": "string" },
 									"group": { "type": "string" },
@@ -67,7 +67,10 @@
 									}
 								}
 							},
-							"additionalProperties": false
+							"additionalProperties": false,
+							"dependencies": {
+								"optional_default": [ "optional" ]
+							}
 						}
 					},
 					"additionalProperties": false
@@ -103,6 +106,29 @@
 								"type": "string",
 								"pattern": "^(/[^/ ]+)+$"
 							}
+						},
+						"server_owned_files": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/ ]+)+$"
+							}
+						},
+						"ignore_permissions": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/ ]+)+/?$"
+							}
+						},
+						"options": {
+							"type": "object",
+							"patternProperties": {
+								"^[a-z]([a-z0-9_-]*[a-z])?$": {
+									"type": "boolean"
+								}
+							},
+							"additionalProperties": false
 						}
 					},
 					"additionalProperties": false
@@ -119,6 +145,13 @@
 					"properties": {
 						"user": { "type": "string" },
 						"type": { "type": "string" },
+						"temp_dirs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/ ]+)+$"
+							}
+						},
 						"world_writable_dirs": {
 							"type": "array",
 							"items": {
