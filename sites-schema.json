@@ -2,7 +2,7 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"id": "https://sharphosting.uk/schemas/sites",
 	"title": "Sites",
-	"description": "Schema for data describing shared hosting website configurations.",
+	"description": "Schema for data describing web server configurations.",
 	"type": "object",
 	"properties": {
 		"web_server": {
