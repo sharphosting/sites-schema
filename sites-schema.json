@@ -2,13 +2,24 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"id": "https://sharphosting.uk/schemas/sites",
 	"title": "Sites",
+<<<<<<< HEAD
 	"description": "Schema for data describing shared hosting website configurations.",
+=======
+	"description": "Schema for data describing web server configurations.",
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 	"type": "object",
 	"properties": {
 		"web_server": {
 			"type": "object",
 			"properties": {
+<<<<<<< HEAD
 				"type": { "type": "string" },
+=======
+				"type": {
+					"type": "string",
+					"pattern": "^[a-z]([a-z0-9_-]*[a-z])?$"
+				},
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 				"user": { "type": "string" },
 				"group": { "type": "string" }
 			},
@@ -20,6 +31,7 @@
 			"properties": {
 				"user": { "type": "string" },
 				"group": { "type": "string" },
+<<<<<<< HEAD
 				"d_mode": { "type": "string" },
 				"f_mode": { "type": "string" },
 				"directories": {
@@ -44,6 +56,56 @@
 								}
 							},
 							"additionalProperties": false
+=======
+				"d_mode": {
+					"type": "string",
+					"pattern": "^[0-7]{3,4}$"
+				},
+				"f_mode": {
+					"type": "string",
+					"pattern": "^[0-7]{3,4}$"
+				},
+				"directories": {
+					"type": "object",
+					"patternProperties": {
+						"^[^/ ]+$": {
+							"title": "Directory",
+							"type": "object",
+							"properties": {
+								"allow_specials": { "type": "boolean" },
+								"user": { "type": "string" },
+								"group": { "type": "string" },
+								"d_mode": {
+									"type": "string",
+									"pattern": "^[0-7]{3,4}$"
+								},
+								"f_mode": {
+									"type": "string",
+									"pattern": "^[0-7]{3,4}$"
+								},
+								"optional": {
+									"type": "string",
+									"pattern": "^[a-z]([a-z0-9_-]*[a-z])?$"
+								},
+								"optional_default": { "type": "boolean" },
+								"contents": {
+									"user": { "type": "string" },
+									"group": { "type": "string" },
+									"d_mode": {
+										"type": "string",
+										"pattern": "^[0-7]{3,4}$"
+									},
+									"f_mode": {
+										"type": "string",
+										"pattern": "^[0-7]{3,4}$"
+									}
+								}
+							},
+							"additionalProperties": false,
+							"dependencies": {
+								"optional_default": [ "optional" ]
+							}
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 						}
 					},
 					"additionalProperties": false
@@ -55,7 +117,11 @@
 		"site_types": {
 			"type": "object",
 			"patternProperties": {
+<<<<<<< HEAD
 				"^[a-z]+$": {
+=======
+				"^[a-z]([a-z0-9_-]*[a-z])?$": {
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 					"title": "Site Type",
 					"type": "object",	
 					"properties": {
@@ -63,22 +129,58 @@
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+$"
+=======
+								"pattern": "^(/[^/ ]+)+$"
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 							}
 						},
 						"world_writable_dirs": {
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+$"
+=======
+								"pattern": "^(/[^/ ]+)+$"
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 							}
 						},
 						"read_only_files": {
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+$"
 							}
+=======
+								"pattern": "^(/[^/ ]+)+$"
+							}
+						},
+						"server_owned_files": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/ ]+)+$"
+							}
+						},
+						"ignore_permissions": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/ ]+)+/?$"
+							}
+						},
+						"options": {
+							"type": "object",
+							"patternProperties": {
+								"^[a-z]([a-z0-9_-]*[a-z])?$": {
+									"type": "boolean"
+								}
+							},
+							"additionalProperties": false
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 						}
 					},
 					"additionalProperties": false
@@ -89,6 +191,7 @@
 		"sites": {
 			"type": "object",
 			"patternProperties": {
+<<<<<<< HEAD
 				"^(/[^/]+)+$": {
 					"title": "Site Folder",
 					"type": "object",
@@ -99,39 +202,73 @@
 						},
 						"type": {
 							"type": "string"
+=======
+				"^(/[^/ ]+)+$": {
+					"title": "Site Folder",
+					"type": "object",
+					"properties": {
+						"user": { "type": "string" },
+						"type": { "type": "string" },
+						"temp_dirs": {
+							"type": "array",
+							"items": {
+								"type": "string",
+								"pattern": "^(/[^/ ]+)+$"
+							}
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 						},
 						"world_writable_dirs": {
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+$"
+=======
+								"pattern": "^(/[^/ ]+)+$"
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 							}
 						},
 						"read_only_files": {
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+$"
+=======
+								"pattern": "^(/[^/ ]+)+$"
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 							}
 						},
 						"server_owned_files": {
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+$"
+=======
+								"pattern": "^(/[^/ ]+)+$"
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 							}
 						},
 						"ignore_permissions": {
 							"type": "array",
 							"items": {
 								"type": "string",
+<<<<<<< HEAD
 								"pattern": "^(/[^/]+)+/?$"
+=======
+								"pattern": "^(/[^/ ]+)+/?$"
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 							}
 						},
 						"options": {
 							"type": "object",
 							"patternProperties": {
+<<<<<<< HEAD
 								"^[a-zA-Z0-9_]+$": {
+=======
+								"^[a-z]([a-z0-9_-]*[a-z])?$": {
+>>>>>>> 08261405e432ef37831ecd59d9170f266bf3af02
 									"type": "boolean"
 								}
 							},
